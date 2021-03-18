@@ -1,0 +1,97 @@
+%!TEX TS-program = xelatex
+
+% Шаблон документа LaTeX создан в 2018 году
+% Алексеем Подчезерцевым
+% В качестве исходных использованы шаблоны
+% 	Данилом Фёдоровых (danil@fedorovykh.ru) 
+%		https://www.writelatex.com/coursera/latex/5.2.2
+%	LaTeX-шаблон для русской кандидатской диссертации и её автореферата.
+%		https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
+
+\documentclass[a4paper,14pt]{article}
+
+\input{data/preambular.tex}
+\begin{document} % конец преамбулы, начало документа
+	%\input{data/title.tex}
+	%\tableofcontents
+	%\pagebreak
+	
+	\section{}
+	Солодянкин Андрей;
+	
+	БИВ174;
+	
+	Исследование афинных преобразований в семантическом пространстве BERT.
+	%\pagebreak
+	
+	\section{Актуальность}
+	%2-3 страницы.
+	
+	%В последние годы компьютеры стали незаменимой частью нашей жизни, они представлены голосовыми помощниками, рекомендательными системами, системами умных домов, умными машинами и другими устройствами.
+	%Важной частью всех этих систем являются модули, которые позволяют донести до компьютера 
+	
+	В последние годы технологии машинного обучения стали неотъемлемой частью нашей жизни.
+	Они представлены голосовыми помощниками, рекомендательными системами, умными домами, умными автомобилями и другими системами.
+	Важной частью этих систем являются модули, которые помогают сделать понятным для компьютера то, что от него требуется.
+	Для систем по обработке текста это модули обработки естественного языка или Natural Language Processing (NLP).
+	
+	Направление обработки естественного языка активно развивается, последний большой прорыв был сделан в 2018 году командой Google AI, была представлена новая модель обработки естественного языка под названием BERT или Bidirectional Encoder Representations from Transformers \cite{bert}. 
+	BERT продемонстрировал лучшее качество на тесте SQuAD (Stanford Question Answering Dataset)[SQuAD] версии 1.1 для вопросно-ответных систем. На рисунке \ref{fig:quality_bert} представлены первые строчки таблицы лидеров для теста SQuAD 1.1.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/2018-11-03.-bert-nlp-method_2}
+		\caption{Сравнение BERT с другими моделями на момент выхода модели}
+		\label{fig:quality_bert}
+	\end{figure}
+	
+	Принцип работы BERT в настоящее время широко распространен в сфере NLP.
+	Модели NLP 
+	
+	Однако существует большое количество аспектов, которые плохо изучены или вообще не изучены, например, влияние вложений друг на друга в одном предложении.
+	Несмотря на то, что эта модель имеет хорошее качество, большинство людей работают с ней, не понимая, что происходит в модели и как модель генерирует результаты.
+	Трудно интерпретировать промежуточные данные.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/quality_14_03_21}
+		\caption{Таблица лидеров теста SQuAD2.0 на 14.03.21}
+		\label{fig:quality140321}
+	\end{figure}
+	
+
+	\pagebreak
+	
+	\section{Обзор литературы}
+	%минимум 30 работ
+	%10-15 страниц
+
+	\pagebreak
+	
+	\section{Постановка задачи}
+	%0.5-1 страница
+	%задачи (минимум 8)
+
+	\pagebreak
+	
+
+	
+	
+	
+	\newpage 
+	\renewcommand{\refname}{{\normalsize Список использованных источников}} 
+	\centering 
+	
+	%\bibliographystyle{gost780s} % ГОСТ 7.80
+	%\bibliography{biblio} % MachLearn.bib
+	
+	\begin{thebibliography}{9} 
+		\addcontentsline{toc}{section}{\refname} 
+		\bibitem{bert}Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint
+		\bibitem{SQuAD}Rajpurkar P. et al. Squad: 100,000+ questions for machine comprehension of text //arXiv preprint arXiv:1606.05250. – 2016.
+		\bibitem{SQuAD2}Rajpurkar P., Jia R., Liang P. Know what you don't know: Unanswerable questions for SQuAD //arXiv preprint arXiv:1806.03822. – 2018.
+		
+		
+	\end{thebibliography}
+	
+\end{document} % конец документа
