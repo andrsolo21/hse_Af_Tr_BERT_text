@@ -1,0 +1,68 @@
+@article{machinery1950computing,
+  title={Computing machinery and intelligence-AM Turing},
+  author={Machinery, Computing},
+  journal={Mind},
+  volume={59},
+  number={236},
+  pages={433},
+  year={1950}
+}
+
+@inproceedings{mikolov2013linguistic,
+  title={Linguistic regularities in continuous space word representations},
+  author={Mikolov, Tom{\'a}{\v{s}} and Yih, Wen-tau and Zweig, Geoffrey},
+  booktitle={Proceedings of the 2013 conference of the north american chapter of the association for computational linguistics: Human language technologies},
+  pages={746--751},
+  year={2013}
+}
+
+@article{mikolov2013efficient,
+  title={Efficient estimation of word representations in vector space},
+  author={Mikolov, Tomas and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+  journal={arXiv preprint arXiv:1301.3781},
+  year={2013}
+}
+
+@article{mikolov2013distributed,
+  title={Distributed representations of words and phrases and their compositionality},
+  author={Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+  journal={arXiv preprint arXiv:1310.4546},
+  year={2013}
+}
+
+@article{hutchins2005first,
+  title={The first public demonstration of machine translation: the Georgetown-IBM system, 7th January 1954},
+  author={Hutchins, John},
+  journal={noviembre de},
+  year={2005}
+}
+
+@book{national1966language,
+  title={Language and Machines: Computers in Translation and Linguistics; a Report},
+  author={National Research Council (US). Automatic Language Processing Advisory Committee and ALPAC (Organization)},
+  volume={1416},
+  year={1966},
+  publisher={National Academies}
+}
+
+@article{fang1966isn,
+  title={It isn't ETAOIN SHRDLU; it's ETAONI RSHDLC},
+  author={Fang, Irving E},
+  journal={Journalism and Mass Communication Quarterly},
+  volume={43},
+  number={4},
+  pages={761},
+  year={1966},
+  publisher={Association for Education in Journalism, etc.}
+}
+
+@article{weizenbaum1966eliza,
+  title={ELIZA—a computer program for the study of natural language communication between man and machine},
+  author={Weizenbaum, Joseph},
+  journal={Communications of the ACM},
+  volume={9},
+  number={1},
+  pages={36--45},
+  year={1966},
+  publisher={ACM New York, NY, USA}
+}
