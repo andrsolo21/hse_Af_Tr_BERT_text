@@ -12,6 +12,9 @@
 
 \input{data/preambular.tex}
 \begin{document} % конец преамбулы, начало документа
+%	\renewcommand{\figurename}{Рис}
+%	\renewcommand{\captionlabeldelim}{-~}
+\captionsetup[figure]{labelformat=simple, labelsep=endash}
 	 \input{data/title.tex}
 	
 	\tableofcontents
@@ -96,7 +99,7 @@
 	
 	\subsubsection{Word2vec}
 	
-	Word2vec одна из первых моделей, использующих нейронные сети для создания векторных представлений слов.
+	Word2vec \cite{word2vec} одна из первых моделей, использующих нейронные сети для создания векторных представлений слов.
 	Идея создания векторов в word2vec основана на предположении о контекстной близости, а именно на том, что слова встречающиеся в одинаковых контекстах скорее всего имеют схожее значение.
 	Предлагается проверять схожесть слов при помощи косинусного сходства их векторных представлений (\ref{eq:cos_sim}).
 	
@@ -128,14 +131,14 @@
 	
 	\subsubsection{ELMO}
 	
-	ELMO была одной из первых моделей обработки естественного языка, которая учитывала контекст слова.
+	ELMO \cite{elmo} была одной из первых моделей обработки естественного языка, которая учитывала контекст слова.
 	Для моделей word2vec или fastText при вычислении векторного представления не учитывается контекст слова, для омонимов и омографов представления будут одинковыми.
 	В ELMO решается эта проблема, в основе этой модели лежит многослойная двунаправленная рекуррентная нейронная сеть c LSTM (Long short-term memory).
 	
 	\subsubsection{BERT}
 	
-	Модель BERT или Bidirectional Encoder Representations from Transformers была опубликована командой Google AI в 2018 году.
-	На момент появления модель BERT показала лучшее качество на тесте SQuAD 1.1.
+	Модель BERT \cite{bert} или Bidirectional Encoder Representations from Transformers была опубликована командой Google AI в 2018 году.
+	На момент появления модель BERT показала лучшее качество на тесте SQuAD 1.1 \cite{SQuAD}.
 	
 	BERT состоит из 12 следующих друг за другом энкодеров.
 	Каждый энкодер состоит из компонентов, первый компонент - это слой внутреннего внимания (self-attention), второй - нейронная сеть прямого распространения (feed-forward neural network).
@@ -190,10 +193,10 @@
 	 
 	 
 	%Возникает необходимость оценить в качество решения задачи пропорциональной аналогии.
-	Интуитивно понятным способом оценить качество будет сопоставить все пары слов друг с другом, посчитать одно из слов по формуле (\ref{eq:3cosadd}) и найти среднее значение косинусной близости после трансформаций.
+	Интуитивно понятным способом оценить качество будет сопоставить все пары слов друг с другом, посчитать одно из слов по формуле (\ref{eq:3cosadd}) \cite{21} и найти среднее значение косинусной близости после трансформаций.
 	Данный способ получил название \textbf{3CosAdd}.
 	
-	Существует пердположение, что \ref{eq:3CosMul} эквивалентно (\ref{eq:3cosadd}). Этот метод получил название \textbf{3CosMul}.
+	Существует пердположение, что \ref{eq:3CosMul} эквивалентно (\ref{eq:3cosadd}). Этот метод получил название \textbf{3CosMul} \cite{21}.
 	
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; cos(v, v_{a^*}) - cos(v, v_a) + cos(v, v_b)
@@ -201,7 +204,7 @@
 	\end{equation}
 
 	Если в группе у пар одна и та же связь, то можно посчитать среднюю разницу между векторами в парах и задача аналогии будет решаться через посчитанную разницу.
-	Эта идея предлагается в метрике	\textbf{3CosAvg} (\ref{eq:3CosAvg}).
+	Эта идея предлагается в метрике	\textbf{3CosAvg} (\ref{eq:3CosAvg}) \cite{28}.
 	
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; cos(v,v_b + \dfrac{\sum_{i=1}^{n}v_{a_i^*}}{n} - \dfrac{\sum_{i=1}^{n}v_{a_i}}{n})
@@ -209,28 +212,28 @@
 	\end{equation}
 	
 	Существуют и другие методы оценки аффинных преобразований.
-	Метод \textbf{Only-b} основан на предположении, что вектора $v_b$ и $v_{b^*}$ находятся максимально близко друг к другу (\ref{eq:Only-b}).
+	Метод \textbf{Only-b} \cite{27} основан на предположении, что вектора $v_b$ и $v_{b^*}$ находятся максимально близко друг к другу (\ref{eq:Only-b}).
 	
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; cos(v, v_b)
 		\label{eq:Only-b}
 	\end{equation}
 
-	В методе \textbf{Ignore-a} предполагается, что результат ближе всего к сумме векторов $v_b$ и $v_{a^*}$ (\ref{eq:Ignore-a}).
+	В методе \textbf{Ignore-a} \cite{27} предполагается, что результат ближе всего к сумме векторов $v_b$ и $v_{a^*}$ (\ref{eq:Ignore-a}).
 	
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; cos(v, v_b + v_{a^*})
 		\label{eq:Ignore-a}
 	\end{equation}
 
-	В методе \textbf{Add-opposite} результатом является вектор, ближайший к выражению $-(v_{a^*} - v_a) + v_b$ (\ref{eq:Add-opposite}).
+	В методе \textbf{Add-opposite} \cite{27} результатом является вектор, ближайший к выражению $-(v_{a^*} - v_a) + v_b$ (\ref{eq:Add-opposite}).
 
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; cos(v, -(v_{a^*} - v_a) + v_b)
 		\label{eq:Add-opposite}
 	\end{equation}
 
-	Метод \textbf{MULTIPLY} имеет следующий вид (\ref{eq:MULTIPLY}).
+	Метод \textbf{MULTIPLY} \cite{27} имеет следующий вид (\ref{eq:MULTIPLY}).
 	
 	\begin{equation}
 		y^* = \underset{v \notin \{v_b, v_a, v_{a^*}\}}{argmax} \; \dfrac{cos(v, v_{a^*}) \; cos(v, v_b)}{cos(v, v_a)}
@@ -332,6 +335,37 @@
 	
 	А также приобретены навыки и опыт практической работы с NLP.
 	Данная практика является хорошим практическим опытом для дальнейшей самостоятельной деятельности.
+	
+	\newpage 
+	\renewcommand{\refname}{{\normalsize Список использованных источников}} 
+	\centering 
+	
+	%\bibliographystyle{gost780s} % ГОСТ 7.80
+	%\bibliography{biblio} % MachLearn.bib
+	
+	\begin{thebibliography}{9} 
+		\addcontentsline{toc}{section}{\refname} 
+		\bibitem{word2vec}Mikolov T. et al. Efficient estimation of word representations in vector space //arXiv preprint arXiv:1301.3781. – 2013.	
+		
+		\bibitem{fasttext}Bojanowski P. et al. Enriching word vectors with subword information //Transactions of the Association for Computational Linguistics. – 2017. – Т. 5. – С. 135-146.
+		
+		\bibitem{elmo}Peters M. E. et al. Deep contextualized word representations //arXiv preprint arXiv:1802.05365. – 2018.
+		
+		\bibitem{bert}Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint
+		
+		\bibitem{SQuAD}Rajpurkar P. et al. Squad: 100,000+ questions for machine comprehension of text //arXiv preprint arXiv:1606.05250. – 2016.
+		
+		\bibitem{21}Levy O., Goldberg Y. Linguistic Regularities in Sparse and Explicit Word 	Representations // Proceedings of the Eighteenth Conference on Computational Natural Language Learning, 2014. P.171-180
+	
+		
+		\bibitem{28}Drozd A., Gladkova A., Matsuoka S. Word Embeddings, Analogies, and Machine Learning: Beyond King-Man+Woman=Queen // Conference: Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers, 2016. 
+		P.3519–3530.
+		
+		\bibitem{27}Linzen T. Issues in evaluating semantic spaces using word analogies // Proceedings of the 1st Workshop on Evaluating Vector-Space Representations for NLP, 2016. P. 13–18.
+		
+		
+	\end{thebibliography}
+	
 	
 	\pagebreak
 	\section{Приложения}
