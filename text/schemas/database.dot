@@ -1,0 +1,25 @@
+digraph database {
+
+//layout=circo
+node[shape=record];
+rankdir="BT";
+
+course [label = "{<f0> course}"];
+user [label = "{<f0> user}"];
+ruz_group [label = "{<f0> ruz_group}"];
+ruz_scheduler [label = "{<f0> ruz_scheduler}"];
+ruz_lessons [label = "{<f0> ruz_lessons}"];
+
+ruz_visit [label = "{<f0> ruz_visit}"];
+
+ruz_group->course [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1"];
+
+ruz_group->ruz_scheduler [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+
+ruz_group->ruz_lessons [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+
+ruz_visit-> user[dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="N"];
+
+ruz_lessons->ruz_visit [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+}
+
