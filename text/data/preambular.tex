@@ -78,11 +78,11 @@
 \usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
 \hypersetup{				% Гиперссылки
 	unicode=true,           % русские буквы в раздела PDF
-	pdftitle={Заголовок},   % Заголовок
-	pdfauthor={Автор},      % Автор
-	pdfsubject={Тема},      % Тема
-	pdfcreator={Создатель}, % Создатель
-	pdfproducer={Производитель}, % Производитель
+	pdftitle={Разработка программной системы для автоматической генерации графа диалогов по текстам пьес.},   % Заголовок
+	pdfauthor={Подчезерцев А.Е.},      % Автор
+	pdfsubject={ВКР},      % Тема
+	pdfcreator={Подчезерцев А.Е.}, % Создатель
+	pdfproducer={Подчезерцев А.Е.}, % Производитель
 	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
 	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
 	linkcolor=black,          % внутренние ссылки
@@ -104,18 +104,10 @@
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 
-% ГОСТ заголовки
-\usepackage[font=small]{caption}
-%\captionsetup[table]{justification=centering, labelsep = newline} % Таблицы по правобу краю
-%\captionsetup[figure]{justification=centering} % Картинки по центру
-
-
-\newcommand{\tablecaption}[1]{\addtocounter{table}{1}\small \begin{flushright}\tablename \ \thetable\end{flushright}%	
-\begin{center}#1\end{center}}
+\usepackage{ dsfont }
 
 \newcommand{\imref}[1]{рис.~\ref{#1}}
 
-\usepackage{multirow}
 \usepackage{spreadtab}
 \newcolumntype{K}[1]{@{}>{\centering\arraybackslash}p{#1cm}@{}}
 
@@ -128,5 +120,41 @@
 	fontsize=\footnotesize    
 }
 
+\newcolumntype{?}[1]{!{\vrule width #1}}
+
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{pdfpages}
+
+\usepackage{rotating}
+
+\usepackage{pdflscape}
+
+\usepackage{ragged2e}
+\usepackage{microtype}
+
+% Выравнивание по ширине без переносов слов
+\justifying
+\sloppy
+\tolerance=500
+\hyphenpenalty=10000
+\emergencystretch=3em
+
+% Подогнать таблицу под ширину страницы
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+% ГОСТ заголовки таблицы
+\usepackage[font=small]{caption}
+
+\captionsetup[figure]{justification=centering,labelsep=period} % Картинки по центру, с точкой после рис
+
+\DeclareCaptionLabelFormat{rightline}{\rightline{\bothIfFirst{#1}{ }#2}}
+\captionsetup[table]{justification=centering,labelformat=rightline,labelsep=newline}
+
+\newcommand{\tablecaption}[1]{\addtocounter{table}{1}\small \begin{flushright}\tablename \ \thetable\end{flushright}%	
+	\begin{center}#1\end{center}}
+
+\usepackage{enumerate}

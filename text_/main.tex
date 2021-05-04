@@ -1,0 +1,50 @@
+%!TEX TS-program = xelatex
+
+% Шаблон документа LaTeX создан в 2018 году
+% Алексеем Подчезерцевым
+% В качестве исходных использованы шаблоны
+% 	Данилом Фёдоровых (danil@fedorovykh.ru) 
+%		https://www.writelatex.com/coursera/latex/5.2.2
+%	LaTeX-шаблон для русской кандидатской диссертации и её автореферата.
+%		https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template
+
+\documentclass[a4paper,14pt]{article}
+
+\input{data/preambular.tex}
+\begin{document} % конец преамбулы, начало документа
+	%\input{data/title.tex}
+	\tableofcontents
+	\pagebreak
+	
+	\section*{Введение}
+	
+	\section{Исследование моделей векторного представления слов}
+	
+	\section{Исследование методов оценки афинных преобразований}
+	
+	\section{Метод}
+	
+	\subsection{Постановка задачи пропорциональной аналогии в терминах аффинного преобразования}
+	
+	\subsection{Разработка метода оценки точности параллельного переноса для контекстуализированных моделей}
+	
+	\subsection{Подготовка экспериментальных данных}
+	
+	\subsection{Проведение экспериментов}
+	
+	
+	\section{Оценка полученных результатов}
+	
+	
+	
+	
+	
+	\newpage 
+	\renewcommand{\refname}{{\normalsize Список использованных источников}} 
+	\centering 
+	\begin{thebibliography}{9} 
+		\addcontentsline{toc}{section}{\refname} 
+		\bibitem{Harris} 
+	\end{thebibliography}
+	
+\end{document} % конец документа

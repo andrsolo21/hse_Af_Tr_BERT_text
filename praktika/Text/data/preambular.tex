@@ -34,6 +34,9 @@
 \usepackage{graphicx}  % Для вставки рисунков
 \graphicspath{{images/}}  % папки с картинками
 \setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+
+
+
 \setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
 \usepackage{wrapfig} % Обтекание рисунков текстом
 
@@ -52,8 +55,10 @@
 \usepackage{geometry} % Простой способ задавать поля
 \geometry{top=20mm}
 \geometry{bottom=20mm}
-\geometry{left=20mm}
+\geometry{left=30mm}
 \geometry{right=10mm}
+
+%\setlength\parindent{5ex}
 %
 %\usepackage{fancyhdr} % Колонтитулы
 % 	\pagestyle{fancy}
@@ -80,10 +85,10 @@
 	unicode=true,           % русские буквы в раздела PDF
 	pdftitle={Отчет по практике},   % Заголовок
 	pdfauthor={Солодянкин А.А.},      % Автор
-	pdfsubject={Распознавание масок},      % Тема
+	pdfsubject={},      % Тема
 	pdfcreator={Солодянкин А.А.}, % Создатель
 	pdfproducer={Солодянкин А.А.}, % Производитель
-	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+	pdfkeywords={BERT} {key2} {key3}, % Ключевые слова
 	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
 	linkcolor=black,          % внутренние ссылки
 	citecolor=black,        % на библиографию
@@ -132,3 +137,19 @@
 
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\gappto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+
+%\gappto\captionsrussian{\renewcommand{\captiondelim}{-}}
+
+%\documentclass{article}
+%\usepackage{caption2}[2008/03/29]
+
+%\usepackage{caption}
+%\captionsetup{labelsep=period}
+
+%\usepackage{ccaption}
+% заменяем для рисунков ':' после номера рисунка на '.'
+%\captiondelim{- } % после точки стоит пробел!
+%Этот пакет обладает совместимостью с caption2, достаточно указать
+%\usepackage[caption2]{ccaption}

@@ -1,0 +1,33 @@
+digraph UI {
+
+layout=circo;
+graph [nodesep="0"];
+node[shape=rect];
+
+list_g [label = "Обзор групп" color=blue]
+find_g [label = "Поиск групп" color=blue]
+edit_g [label = "Редактирование групп" color=blue]
+m_course [label = "Курс Moodle" color=red]
+b_enrol [label = "Запись пользователей"]
+b_scheduler [label = "Просмотр расписания"]
+b_add_g [label = "Добавить группу"]
+b_user_add [label = "Добавить пользователя"]
+m_bulk [label = "Множественное добавление пользователей" color=red]
+m_visits [label = "Управление посещаемостью"]
+
+list_g -> find_g;
+list_g -> edit_g;
+find_g -> list_g;
+find_g -> edit_g;
+edit_g -> list_g;
+edit_g -> find_g;
+
+list_g -> m_course;
+list_g -> b_enrol;
+list_g -> b_scheduler;
+find_g -> b_add_g;
+edit_g -> b_user_add;
+edit_g -> m_bulk;
+edit_g -> m_visits;
+}
+
